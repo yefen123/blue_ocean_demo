@@ -10,6 +10,8 @@ pipeline {
 		stage('阶段名称：master_编译构建change') {
 			steps { 
 				echo '打印：编译构建' 
+				echo 'test success' > test_result.xml
+				echo '++++$PWD'
 			}
 		}
 		stage('阶段名称：master_项目部署change') {
