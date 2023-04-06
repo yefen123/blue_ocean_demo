@@ -1,7 +1,4 @@
 pipeline{
-//指定运行此流水线的节点
-agent { node { label "dev_build"}}
- 
 //流水线的阶段
 stages{
  
