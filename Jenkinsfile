@@ -3,7 +3,7 @@ pipeline {
 	agent any
 	stages {
 		stage('阶段名称：master_拉取代码') {
-			steps("步骤名称：拉取代码"){ 
+			steps("步骤名称：拉取代码change"){ 
 				echo '打印：拉取代码' 
 			}
 		}
