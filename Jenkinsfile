@@ -1,51 +1,26 @@
-pipeline{
-//指定运行此流水线的节点
-agent { node { label "master_build"}}
-    
- 
-//流水线的阶段
-stages{
- 
-    //阶段1 获取代码
-    stage("master_CheckOut"){
-        steps{
-            script{
-                println("获取代码")
-            }
+pipeline {
+	//运行在任意的可用节点上
+	agent any
+	stages {
+		stage('阶段名称：master_拉取代码') {
+			steps("步骤名称：拉取代码"){ 
+				echo '打印：拉取代码' 
+			}
+		}
+		stage('阶段名称：master_编译构建') {
+			steps { 
+				echo '打印：编译构建' 
+			}
+		}
+		stage('阶段名称：master_项目部署') {
+			steps { 
+				echo '打印：项目部署' 
+			}
+		}
+	}
+    post{
+        always{
+            echo "阶段完成后动作"
         }
     }
-    stage("master_Build"){
-        steps{
-            script{
-                println("运行构建")
-            }
-        }
-    }
-}
-post {
-    always{
-        script{
-            println("流水线结束后，经常做的事情")
-        }
-    }
-        
-    success{
-        script{
-            println("流水线成功后，要做的事情")
-        }
-        
-    }
-    failure{
-        script{
-            println("流水线失败后，要做的事情")
-        }
-    }
-        
-    aborted{
-        script{
-            println("流水线取消后，要做的事情")
-        }
-        
-    }
-}
 }
