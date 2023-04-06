@@ -5,14 +5,14 @@ stages{
     stage("dev_CheckOut"){
         steps{
             script{
-                println("获取代码")
+                //println("获取代码")
             }
         }
     }
     stage("dev_Build"){
         steps{
             script{
-                println("运行构建")
+                //println("运行构建")
             }
         }
     }
