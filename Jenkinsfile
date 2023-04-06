@@ -1,20 +1,26 @@
-pipeline{
-//流水线的阶段
-stages{
-    //阶段1 获取代码
-    stage("dev_CheckOut"){
-        steps{
-            script{
-                //println("获取代码")
-            }
+pipeline {
+	//运行在任意的可用节点上
+	agent any
+	stages {
+		stage('阶段名称：拉取代码') {
+			steps("步骤名称：拉取代码"){ 
+				echo '打印：拉取代码' 
+			}
+		}
+		stage('阶段名称：编译构建') {
+			steps { 
+				echo '打印：编译构建' 
+			}
+		}
+		stage('阶段名称：项目部署') {
+			steps { 
+				echo '打印：项目部署' 
+			}
+		}
+	}
+    post{
+        always{
+            echo "阶段完成后动作"
         }
     }
-    stage("dev_Build"){
-        steps{
-            script{
-                //println("运行构建")
-            }
-        }
-    }
-}
 }
